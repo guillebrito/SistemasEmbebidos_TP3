@@ -23,10 +23,21 @@ SPDX-License-Identifier: MIT
 
 #include "alumno.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* === Macros definitions ===================================================================== */
 
+#define FIELD_SIZE 50
+
 /* === Private data type declarations ========================================================= */
+
+struct alumno_s
+{
+    char apellido[FIELD_SIZE];
+    char nombre[FIELD_SIZE];
+    uint32_t documento;
+};
 
 /* === Private variable declarations ========================================================== */
 
@@ -53,6 +64,17 @@ static int SerializarNumero(const char * campo, int valor, char * cadena, int es
 }
 
 /* === Public function implementation ========================================================= */
+
+alumno_t CrearAlumno(char * apellido, char * nombre, int documento)
+{
+    alumno_t resultado = malloc(sizeof(struct alumno_s));
+
+    strcpy(resultado->nombre, nombre);
+    strcpy(resultado->apellido, apellido);
+    resultado->documento = documento;
+
+    return resultado;
+}
 
 int Serializar(alumno_t alumno, char cadena[], uint32_t espacio)
 {

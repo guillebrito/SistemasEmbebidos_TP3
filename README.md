@@ -1,4 +1,4 @@
-# Trabajo Práctico Número 2
+# Trabajo Práctico Número 3
 
 - Para compilar el proyecto se debe ejecutar el comando `make` por consola
 - Para correr el programa ejecutar el siguiente comando `./build/bin/app.elf`
