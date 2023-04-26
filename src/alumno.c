@@ -25,6 +25,7 @@ SPDX-License-Identifier: MIT
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 /* === Macros definitions ===================================================================== */
 
@@ -37,6 +38,7 @@ struct alumno_s
     char apellido[FIELD_SIZE];
     char nombre[FIELD_SIZE];
     uint32_t documento;
+    bool ocupado;
 };
 
 /* === Private variable declarations ========================================================== */
@@ -67,8 +69,24 @@ static int SerializarNumero(const char * campo, int valor, char * cadena, int es
 
 alumno_t CrearAlumno(char * apellido, char * nombre, int documento)
 {
-    alumno_t resultado = malloc(sizeof(struct alumno_s));
+    alumno_t resultado;
 
+#ifdef STATIC
+    printf("Creando alumno en una memoria estática...\n");
+    static struct alumno_s instancias[50];
+    for (int i = 0; i < 50; i++)
+    {
+        if (instancias[i].ocupado == false)
+        {
+            resultado = &instancias[i];
+            instancias[i].ocupado = true;
+            break;
+        }
+    }
+#else
+    printf("Creando alumno en una memoria dinámica...\n");
+    resultado = malloc(sizeof(struct alumno_s));
+#endif
     strcpy(resultado->nombre, nombre);
     strcpy(resultado->apellido, apellido);
     resultado->documento = documento;
