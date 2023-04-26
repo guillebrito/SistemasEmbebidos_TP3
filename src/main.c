@@ -48,9 +48,8 @@ SPDX-License-Identifier: MIT
 /**
  * @brief Función principal del programa.
  *
- * Crea una estructura del tipo alumno_s y luego carga los campos con los datos del alumno.
- * Implementa la funcion @ref Serializar y muestra la cadena generada, muestra un mensaje de error
- * en caso de haberlo.
+ * Crea un nuevo alumno, luego implementa la funcion @ref Serializar y muestra la cadena generada,
+ * muestra un mensaje de error en caso de haberlo.
  */
 int main(void)
 {

@@ -43,18 +43,36 @@ extern "C"
 
     /* === Public data type declarations ========================================================*/
 
-    /**
-     * @brief Declaración de un tipo de datos struct para almacenar los datos de un alumno
-     *
-     *Esto declara un tipo de dato @b alumno_t con la forma del struct @ref alumno_s
-     */
     typedef struct alumno_s * alumno_t;
 
     /* === Public variable declarations =========================================================*/
 
     /* === Public function declarations =========================================================*/
 
+    /**
+     * @brief Función para crear alumnos.
+     *
+     * Esta función crea un nuevo alumno y lo almacena segun el tipo de memoria seleccionado al
+     * compilar el proyecto.
+     *
+     * @param apellido Apeliido del nuevo alumno.
+     * @param nombre Nombre del nuevo alumno.
+     * @param documento Documento del nuevo alumno.
+     * @return alumno_t Retorna el puntero al lugar de memoria donde se almacenan los datos.
+     */
     alumno_t CrearAlumno(char * apellido, char * nombre, int documento);
+
+    /**
+     * @brief Función para serializar los datos de un alumno
+     *
+     * Esta función toma los datos del alumno y genera una cadena con su nombre, apellido y
+     * documento en formato JSON.
+     *
+     * @param alumno Puntero a la estructura con los datos del alumno
+     * @param cadena Puntero a la cadena generada
+     * @param espacio Espacio disponible en la cadena generada
+     * @return int Retorna tamaño de la cadena generada, en caso de espacio insuficiente retorna -1
+     */
     int Serializar(alumno_t alumno, char cadena[], uint32_t espacio);
 
     /* === End of documentation =================================================================*/
