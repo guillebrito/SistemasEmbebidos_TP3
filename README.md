@@ -5,6 +5,8 @@
 - Con el comando `make clean` se elimina la carpeta build.
 - Con el comando `make docs` se genera la documentación.
 
+Nota: Se recomienda eliminar la carpeta build con el comando `make clean` en el caso de querer cambiar el tipo de memoria de almacenamiento.
+
 Autor: Brito, Guillermo Nicolás
 
 Asignatura: Sistemas Embebidos

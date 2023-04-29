@@ -55,7 +55,7 @@ extern "C"
      * Esta función crea un nuevo alumno y lo almacena segun el tipo de memoria seleccionado al
      * compilar el proyecto.
      *
-     * @param apellido Apeliido del nuevo alumno.
+     * @param apellido Apellido del nuevo alumno.
      * @param nombre Nombre del nuevo alumno.
      * @param documento Documento del nuevo alumno.
      * @return alumno_t Retorna el puntero al lugar de memoria donde se almacenan los datos.
